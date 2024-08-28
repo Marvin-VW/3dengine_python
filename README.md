@@ -1,7 +1,7 @@
-[![Build status](https://github.com/Marvin-VW/3dengine/actions/workflows/tests.yaml/badge.svg)]()
-[![GitHub latest commit](https://badgen.net/github/last-commit/Marvin-VW/3dengine)](https://GitHub.com/twyleg/template_project_python/commit/)
-[![PyPI download month](https://img.shields.io/pypi/dm/3dengine)](https://pypi.python.org/pypi/3dengine/)
-[![PyPi version](https://badgen.net/pypi/v/3dengine/)](https://pypi.org/project/3dengine)
+[![Build status](https://github.com/twyleg/template_project_python/actions/workflows/tests.yaml/badge.svg)]()
+[![GitHub latest commit](https://badgen.net/github/last-commit/twyleg/template_project_python)](https://GitHub.com/twyleg/template_project_python/commit/)
+[![PyPI download month](https://img.shields.io/pypi/dm/template-project-python)](https://pypi.python.org/pypi/template-project-python/)
+[![PyPi version](https://badgen.net/pypi/v/template-project-python/)](https://pypi.org/project/template-project-python)
 [![Documentation Status](https://readthedocs.org/projects/3dengine/badge/?version=latest)](https://3dengine.readthedocs.io/en/latest/?badge=latest)
 
 # Basic 3D Engine in Python

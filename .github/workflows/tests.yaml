@@ -1,0 +1,15 @@
+name: tests
+run-name: tests
+on: [push]
+jobs:
+  run-unittests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: tox
