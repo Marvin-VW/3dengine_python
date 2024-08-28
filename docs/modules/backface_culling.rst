@@ -35,13 +35,16 @@ In this module we are dealing with the following code snippet of the Engine Loop
 
 Without Backface Culling the Cube would look like the following:
 
+.. image:: ../resources/culling/without.png
+  :width: 800
+  :alt: without Backface Culling
 
 
 --------------------------------------------------------------------------------------------------------------------------
 
 With Backface Culling the Cube would look like the following:
 
-.. image:: ../resources/backface_culling/with.png
+.. image:: ../resources/culling/with.png
   :width: 800
   :alt: with Backface Culling
 
@@ -54,12 +57,12 @@ Each polygon in a 3D object has a surface normal, which is a vector perpendicula
 
 The normal is calculated the following way, with the help of the cross product:
 
-.. image:: ../resources/backface_culling/cross.png
+.. image:: ../resources/culling/cross.png
   :width: 800
   :alt: cross product
 
 
-.. image:: ../resources/backface_culling/normal.png
+.. image:: ../resources/culling/normal.png
   :width: 800
   :alt: normal
 
@@ -79,7 +82,7 @@ Now that we have the surface normals and the normal of the camera (if you missed
 
 The angle between the surface normal and the camera's view direction is calculated using the dot product. If the result of this dot product is positive (1), it means the polygon is facing away from the camera. If it's negative (-1), the polygon is facing towards the camera.
 
-.. image:: ../resources/backface_culling/dot.png
+.. image:: ../resources/culling/dot.png
   :width: 800
   :alt: dot product
 
