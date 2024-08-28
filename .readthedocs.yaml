@@ -16,6 +16,5 @@ python:
 sphinx:
   configuration: docs/conf.py
 
-build:
-  commands:
-    - tox -e docs
+commands:
+  - tox -e docs
