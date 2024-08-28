@@ -35,9 +35,6 @@ In this module we are dealing with the following code snippet of the Engine Loop
 
 Without Backface Culling the Cube would look like the following:
 
-.. image:: ../resources/backface_culling/without.png
-  :width: 800
-  :alt: without Backface Culling
 
 
 --------------------------------------------------------------------------------------------------------------------------
