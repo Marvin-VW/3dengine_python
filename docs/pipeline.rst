@@ -16,7 +16,7 @@ Pipeline Stages
 
     <img src="/.tox/docs/tmp/html/00.png" width="400" style="float: left; padding: 0; margin: 0;" />
 
-    <a href="/.tox/docs/tmp/html/modules/init.html">
+    <a href="/modules/init.html">
         <img src="/.tox/docs/tmp/html/01.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
