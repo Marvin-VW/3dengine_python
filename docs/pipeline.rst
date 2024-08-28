@@ -16,17 +16,17 @@ Pipeline Stages
 
     <img src="00.png" width="400" style="float: left; padding: 0; margin: 0;" />
 
-    <a href="/modules/init.html">
+    <a href="modules/init.html">
         <img src="/.tox/docs/tmp/html/01.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <img src="/.tox/docs/tmp/html/02.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <img src="02.png" width="400" style="float: left; padding: 0; margin: 0;" />
 
-    <a href="/.tox/docs/tmp/html/modules/starting_the_loop.html">
-        <img src="/.tox/docs/tmp/html/03.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/starting_the_loop.html">
+        <img src="03.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/backface_culling.html">
+    <a href="modules/backface_culling.html">
         <img src="/.tox/docs/tmp/html/04.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
