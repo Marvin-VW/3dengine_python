@@ -6,7 +6,7 @@
 
 # Basic 3D Engine in Python
 
-![World Space](.docs/resources/space/world_space.png)
+![World Space](docs/resources/space/world_space.png)
 
 This project is a 3D engine written in Python using OpenCV and NumPy. The engine includes features such as backface culling, object clipping, basic lighting, and FPS calculation.
 
