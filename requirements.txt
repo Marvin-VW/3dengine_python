@@ -7,3 +7,5 @@ tox~=4.11.4
 versioneer~=0.29
 pyinstaller
 template-project-utils
+sphinx
+sphinx_rtd_theme
