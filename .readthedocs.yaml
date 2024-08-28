@@ -17,6 +17,5 @@ sphinx:
 
 build:
   os: ubuntu-22.04
-  image: latest
   commands:
     - tox -e docs
