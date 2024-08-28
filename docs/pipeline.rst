@@ -14,47 +14,46 @@ Pipeline Stages
 
 .. raw:: html
 
-    <img src="/.tox/docs/tmp/html/00.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <img src="00.png" width="400" style="float: left; padding: 0; margin: 0;" />
 
-    <a href="/.tox/docs/tmp/html/modules/init.html">
-        <img src="/.tox/docs/tmp/html/01.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/init.html">
+        <img src="01.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <img src="/.tox/docs/tmp/html/02.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <img src="02.png" width="400" style="float: left; padding: 0; margin: 0;" />
 
-    <a href="/.tox/docs/tmp/html/modules/starting_the_loop.html">
-        <img src="/.tox/docs/tmp/html/03.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/starting_the_loop.html">
+        <img src="03.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/backface_culling.html">
-        <img src="/.tox/docs/tmp/html/04.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/backface_culling.html">
+        <img src="04.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
     <a href="modules/lighting_calculations.html">
-        <img src="/.tox/docs/tmp/html/05.png" width="400" style="float: left; padding: 0; margin: 0;" />
+        <img src="05.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/depth_sorting.html">
-        <img src="/.tox/docs/tmp/html/06.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/depth_sorting.html">
+        <img src="06.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-     <a href="/.tox/docs/tmp/html/modules/depth_sorting.html">
-        <img src="/.tox/docs/tmp/html/07.png" width="400" style="float: left; padding: 0; margin: 0;" />
+     <a href="modules/depth_sorting.html">
+        <img src="07.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/shadow.html">
-        <img src="/.tox/docs/tmp/html/08.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/shadow.html">
+        <img src="08.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/clipping.html">
-        <img src="/.tox/docs/tmp/html/09.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/clipping.html">
+        <img src="09.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/rendering.html">
-        <img src="/.tox/docs/tmp/html/010.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/rendering.html">
+        <img src="010.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="/.tox/docs/tmp/html/modules/display.html">
-        <img src="/.tox/docs/tmp/html/011.png" width="400" style="float: left; padding: 0; margin: 0;" />
+    <a href="modules/display.html">
+        <img src="011.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
-
