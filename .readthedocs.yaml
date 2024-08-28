@@ -5,6 +5,9 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
+  jobs:
+    post_build:
+      - tox -e docs
 
 python:
   install:
@@ -14,6 +17,3 @@ python:
 
 sphinx:
   configuration: docs/conf.py
-
-commands:
-  - tox -e docs
