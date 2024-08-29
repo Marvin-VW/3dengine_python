@@ -5,8 +5,25 @@ Frustum Clipping
 
 This module explains the view frustum and the clipping of it. This optimizes performance and avoids unnecessary calculations for off-screen elements.
 
-First of all, the view frustum represents what the user can see, similar to how your eyes can only see what's in front of you. Sometimes, objects are partially or completely outside of this view, so these objects either **don't need to be rendered at all or only partially rendered**.
+In this module we are dealing with the following code snippet of the Engine Loop:
 
+
+    .. code-block:: python
+        :caption: :mod:`main` method
+        :linenos:
+
+        def main(self):
+
+            ...
+            
+            clipped_triangles = []
+            clipped_triangles.extend(self.clipping_space.cube_in_space(sorted_list))
+
+            ...
+
+------------------------------------------------------------------------------------------------------------------------
+
+First of all, the view frustum represents what the user can see, similar to how your eyes can only see what's in front of you. Sometimes, objects are partially or completely outside of this view, so these objects either **don't need to be rendered at all or only partially rendered**.
 
     .. image:: ../resources/clipping/ViewFrustum.png
         :width: 800

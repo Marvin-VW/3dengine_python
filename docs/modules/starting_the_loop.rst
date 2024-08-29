@@ -3,10 +3,9 @@
 Starting the Loop
 =====================
 
-Now we're at the beginning of the main loop. First, we handle the movement, then update the FPS counter, and finally reset the camera image.
+Now we're at the beginning of the main loop. First, we handle the movement, then update the FPS counter, and reset the camera image.
 
 In this module we are dealing with the following code snippet of the Engine Loop:
-
 
     .. code-block:: python
         :caption: :mod:`main` method
@@ -19,9 +18,9 @@ In this module we are dealing with the following code snippet of the Engine Loop
                 self.window.handle_movement()
                 self.fps_counter.update()
                 self.camera_model.reset_camera_image()
+
                 ...
 
-Let's dive into the detailed explanations of the implementation.
 
 ------------------------------------------------------------------------------------------------
 

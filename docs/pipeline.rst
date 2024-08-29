@@ -16,7 +16,7 @@ Pipeline Stages
 
     <img src="00.png" width="400" style="float: left; padding: 0; margin: 0;" />
 
-    <a href="modules/init.html">
+    <a href="modules/shape.html">
         <img src="01.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
@@ -26,15 +26,15 @@ Pipeline Stages
         <img src="03.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="modules/backface_culling.html">
+    <a href="modules/camera_and_transformations.html">
         <img src="04.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="modules/lighting_calculations.html">
+    <a href="modules/backface_culling.html">
         <img src="05.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="modules/depth_sorting.html">
+    <a href="modules/lighting_calculations.html">
         <img src="06.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
@@ -46,14 +46,14 @@ Pipeline Stages
         <img src="08.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="modules/clipping.html">
+    <a href="modules/frustum_clipping.html">
         <img src="09.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="modules/rendering.html">
+    <a href="modules/render_engine.html">
         <img src="010.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>
 
-    <a href="modules/display.html">
+    <a href="modules/display_engine.html">
         <img src="011.png" width="400" style="float: left; padding: 0; margin: 0;" />
     </a>

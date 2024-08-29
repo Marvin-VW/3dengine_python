@@ -1,9 +1,29 @@
 .. _shape_module:
 
-Cube and Rectangle Module
-=========================
+Object Initialization and Loading
+==================================
 
 This module contains classes that represent basic 3D shapes and operations. The primary classes are :mod:`Triangle4D`, :mod:`Cube`, and :mod:`Rectangle`. 
+
+.. note::
+    You can use cubes or rectangles, or you can use the :ref:`OBJ Importer <import_module>`
+
+In this module we are dealing with the following code snippet of the Engine Loop:
+
+    .. code-block:: python
+        :caption: :mod:`main` method
+        :linenos:
+
+        def main(self):
+
+            ...
+
+            cube = Cube(size=1, pos_x=0, pos_y=0, pos_z=0)
+            self.mesh_list.extend(cube.mesh)
+
+            ...
+
+-----------------------------------------------------------------------------------------------------------------------------
 
 - `Triangle4D`: A class representing a triangle in 4D space.
 

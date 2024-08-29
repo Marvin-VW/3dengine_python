@@ -3,6 +3,7 @@
 Shadow
 =====================
 
+In this module, I will explain the basic concept behind our shadow calculation.
 
 .. image:: ../resources/final.png
     :width: 800

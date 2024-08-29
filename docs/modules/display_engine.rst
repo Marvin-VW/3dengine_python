@@ -21,7 +21,7 @@ In this module we are dealing with the following code snippet of the Engine Loop
 
                 self.fps_setter()
                 self.window.window_show(self.camera_model)
-                self.sendImage(self.camera_model.camera_image)
+                
                 ...
 
 Let's dive into the detailed explanations of the implementation.
@@ -50,7 +50,7 @@ In this line, we set our final fps counter.
 
     .. method:: window_show()
 
-    - The method displays the current frame of the camera.
+    - The method displays the current frame of the camera using the cv2 libary.
     
     .. code-block:: python
         :caption: :mod:`window_show` method

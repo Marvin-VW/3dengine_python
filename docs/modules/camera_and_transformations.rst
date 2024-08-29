@@ -6,6 +6,25 @@ Homogeneous Transformation Module
 These Module allow us to allows us to transform objects within our 3D space. This module combines translation, rotation, and scaling into a single matrix operation.
 
 
+
+In this module we are dealing with the following code snippet of the Engine Loop:
+
+
+    .. code-block:: python
+        :caption: :mod:`main` method
+        :linenos:
+
+        def main(self):
+
+            ...
+
+            self.V_T_C, self.C_T_V, self.V_T_Cube = Matrix_Functions.homogeneous_transformation(self.window)
+            camera_vector_world = self.camera_model.get_camera_vectors(self.V_T_C)
+            
+            ...
+
+------------------------------------------------------------------------------------------------------------------------
+
 - **Translation Matrix**: Moves the object in 3D space by shifting its position along the x, y, and z axes.
 
 

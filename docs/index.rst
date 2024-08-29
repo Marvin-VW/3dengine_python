@@ -18,6 +18,7 @@ Before diving into the details, make sure to follow the setup instructions in th
 
 .. toctree::
    :maxdepth: 1
+   :caption: Running your own Version
 
    installation
 
@@ -26,11 +27,17 @@ Understanding the Render Pipeline
 
 For a better grasp of how this 3D engine works, check out the render pipeline. It outlines the step-by-step process that the engine follows to transform and render 3D objects onto the screen.
 
+
 .. toctree::
    :maxdepth: 1
+   :caption: Understanding 3D Engines
 
-   modules/3dengine_theo
-   modules/example
+   modules/3dengine_theorie
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Engine Pipeline
+
    pipeline
 
 Exploring the Modules
@@ -40,20 +47,16 @@ If you're interested in understanding the inner workings of the engine, take a d
 
 .. toctree::
    :maxdepth: 1
+   :caption: Engine Modules
 
-   modules/init
+   modules/shape
    modules/importer
    modules/starting_the_loop
-   modules/homogeneous_transformation
+   modules/camera_and_transformations
    modules/backface_culling
    modules/lighting_calculations
    modules/depth_sorting
    modules/shadow
-   modules/clipping
-   modules/rendering
-   modules/display
-
-Indices and Tables
-==================
-
-Use the indices and search functionality to quickly locate specific information within the documentation.
+   modules/frustum_clipping
+   modules/render_engine
+   modules/display_engine

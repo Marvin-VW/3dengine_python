@@ -23,8 +23,6 @@ In this module we are dealing with the following code snippet of the Engine Loop
                     self.camera_model.fill_cube_faces(clipped_triangles)
                 ...
 
-Let's dive into the detailed explanations of the implementation.
-
 ------------------------------------------------------------------------------------
 
     .. method:: draw_all_cube_points(triangles: List) -> None

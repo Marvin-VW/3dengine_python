@@ -5,38 +5,31 @@ OBJ_Importer Module
 
 This module contains the classes and functions related to handling 4D objects and importing them from OBJ files.
 
+In this module we are dealing with the following **optional** code snippet of the Engine Loop:
+
+
+    .. code-block:: python
+        :caption: :mod:`main` method
+        :linenos:
+
+        def main(self):
+
+            ...
+
+            file_path = r"utils\resources\VideoShip.obj"
+            struc = Structure_Generator.load_from_obj(file_path)
+            self.mesh_list.extend(struc)
+
+            ...
+
 .. note::
     The `Triangle4D` class is defined in the :ref:`Shape Module <shape_module>`.
 
 
 The :mod:`OBJ_Importer` class provides methods to import 3D vertices and faces from an OBJ file and create corresponding 4D points and triangles.
-
+If the OBJ file is structured as a triangle mesh, the file contains :mod:`v` entries representing the vertices of an object. It also contains :mod:`f` entries, which represent faces. These faces contain numbers referring to the vertices, allowing a vertex to be reused multiple times.
 .. class:: OBJ_Importer
 
-    .. method:: create_point(x: float, y: float, z: float) -> np.array
-
-        This method creates a 4D point from the given 3D coordinates.
-
-        **Parameters**:
-          - `x (float)`: The x-coordinate.
-          - `y (float)`: The y-coordinate.
-          - `z (float)`: The z-coordinate.
-
-        **Returns**:
-          - `np.array`: A 4D point represented as a NumPy array with homogeneous coordinates.
-        
-        **Code**:
-
-            .. code-block:: python
-
-                @staticmethod  
-                def create_point(x: float, y: float, z: float) -> np.array:
-                    return np.array([
-                        [x],
-                        [y],
-                        [z],
-                        [1]
-                    ])
 
     .. method:: load_from_obj(filename: str) -> list
 
