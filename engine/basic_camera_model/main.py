@@ -57,9 +57,8 @@ def DEG_TO_RAD(deg: float) -> float:
 
 
 if __name__ == "__main__":
-    print("playground_camera_model started!")
 
-    camera_model = CameraModel(0.00452, 0.00254, 0.004, 1280, 720, 1280/2, 720/2)
+    camera_model = CameraModel(0.00452, 0.00339, 0.004, 640*2, 480*2, 640, 480)
 
     W_T_V = create_homogeneous_transformation_matrix(0, 0, 0, 0, 0, 0)
     V_T_C = create_homogeneous_transformation_matrix(0, 0, 0, 0, 0, 0)
@@ -102,14 +101,14 @@ if __name__ == "__main__":
 
     cv.setTrackbarPos("X", "camera settings", 10000)
     cv.setTrackbarPos("Y", "camera settings", 10000)
-    cv.setTrackbarPos("Z", "camera settings", 11000)
+    cv.setTrackbarPos("Z", "camera settings", 5000)
     cv.setTrackbarPos("Roll", "camera settings", 0)
-    cv.setTrackbarPos("Pitch", "camera settings", 180)
+    cv.setTrackbarPos("Pitch", "camera settings", 1800)
     cv.setTrackbarPos("Yaw", "camera settings", 0)
 
-    cv.setTrackbarPos("X", "cube settings", 14000)
+    cv.setTrackbarPos("X", "cube settings", 10000)
     cv.setTrackbarPos("Y", "cube settings", 10000)
-    cv.setTrackbarPos("Z", "cube settings", 11000)
+    cv.setTrackbarPos("Z", "cube settings", 10000)
     cv.setTrackbarPos("Roll", "cube settings", 0)
     cv.setTrackbarPos("Pitch", "cube settings", 0)
     cv.setTrackbarPos("Yaw", "cube settings", 0)

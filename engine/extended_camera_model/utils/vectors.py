@@ -62,7 +62,7 @@ class CalculateNormal:
     def get_shadow(triangles, light_vec):
 
         shadow_points = []
-        plane_normal = np.array([0, 0, 1])
+        plane_normal = np.array([0, 1, 0])
 
         for triangle in triangles:
             for point in triangle.world_points:

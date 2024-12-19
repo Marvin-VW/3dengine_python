@@ -1,15 +1,118 @@
 name: tests
-run-name: tests
-on: [push]
+run-name: Python Tests
+on:
+  workflow_call:
+  push:
+    branches:
+      - "**"
+
 jobs:
-  run-unittests:
+  setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: actions/setup-python@v4
+      - name: 'Setup Python'
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: tox
+          python-version: '3.12.3'
+      - name: Ensure pip is installed
+        run: python -m ensurepip --upgrade
+      - name: Upgrade pip and setuptools
+        run: |
+          python -m pip install --upgrade pip setuptools
+      - name: 'Install dependencies'
+        run: python -m pip install -r requirements.txt
+
+  run-unittests:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Run unit tests'
+        run: tox -e docs
+      - name: 'Test engine/basic_camera_model/main.py'
+        run: python engine/basic_camera_model/main.py
+      - name: 'Test engine/extended_camera_model/main.py'
+        run: python engine/extended_camera_model/main.py
+
+  smoke-tests-linux:
+    needs: setup
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ['ubuntu:latest', 'ubuntu:20.04', 'ubuntu:22.04', 'debian:latest', 'archlinux:latest']
+        python_version: ['3.12']
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.image }}
+      env:
+        TZ: Europe/Berlin
+    steps:
+      - name: 'Install git (Ubuntu, Debian)'
+        if: ${{ contains(fromJSON('["ubuntu:latest", "ubuntu:20.04", "ubuntu:22.04", "debian:latest"]'), matrix.image) }}
+        run: apt-get update && apt-get install -y git
+      - name: 'Install git (Arch)'
+        if: ${{ contains('archlinux:latest', matrix.image) }}
+        run: pacman -Syu --noconfirm git
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: 'Setup timezone'
+        run: ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+      - name: 'Install OpenGL dependencies (Ubuntu/Debian)'
+        if: ${{ contains(matrix.image, 'ubuntu') || contains(matrix.image, 'debian') }}
+        run:  apt-get install -y libgl1-mesa-glx
+      - name: 'Install OpenGL dependencies (Arch)'
+        if: ${{ contains(matrix.image, 'archlinux') }}
+        run:  pacman -Syu --noconfirm libglvnd
+      - name: 'Setup Python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python_version }}
+      - name: Ensure pip is installed
+        run: python -m ensurepip --upgrade
+      - name: Upgrade pip and setuptools
+        run: |
+          python -m pip install --upgrade pip setuptools
+      - name: 'Install dependencies'
+        run: python -m pip install -r requirements.txt
+      - name: 'Run unit tests'
+        run: tox -e docs
+      - name: 'Test engine/basic_camera_model/main.py'
+        run: python engine/basic_camera_model/main.py
+      - name: 'Test engine/extended_camera_model/main.py'
+        run: python engine/extended_camera_model/main.py
+
+  smoke-tests-macos:
+    needs: setup
+    strategy:
+      fail-fast: false
+      matrix:
+        macos_version: ['macos-latest', 'macos-13']
+        python_version: ['3.12']
+    runs-on: ${{ matrix.macos_version }}
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: 'Setup Python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python_version }}
+      - name: Ensure pip is installed
+        run: python -m ensurepip --upgrade
+      - name: Upgrade pip and setuptools
+        run: |
+          python -m pip install --upgrade pip setuptools
+      - name: 'Install dependencies'
+        run: python -m pip install -r requirements.txt
+      - name: 'Run unit tests'
+        run: tox -e docs
+      - name: 'Test engine/basic_camera_model/main.py'
+        run: python engine/basic_camera_model/main.py
+      - name: 'Test engine/extended_camera_model/main.py'
+        run: python engine/extended_camera_model/main.py
