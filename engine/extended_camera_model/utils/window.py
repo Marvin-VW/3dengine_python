@@ -8,18 +8,18 @@ class Window:
 
     def __init__(self):
         self.camera_system_translation_x = 10000
-        self.camera_system_translation_y = 10000
-        self.camera_system_translation_z = 10000
-        self.camera_system_rotation_roll = 2700
-        self.camera_system_rotation_pitch = 0
-        self.camera_system_rotation_yaw = 2700
+        self.camera_system_translation_y = 13000
+        self.camera_system_translation_z = 3000
+        self.camera_system_rotation_roll = 1500
+        self.camera_system_rotation_pitch = 1800
+        self.camera_system_rotation_yaw = 0
 
-        self.cube_system_translation_x = 16000
+        self.cube_system_translation_x = 10000
         self.cube_system_translation_y = 10000
         self.cube_system_translation_z = 10000
         self.cube_system_rotation_roll = 0
-        self.cube_system_rotation_pitch = 0
-        self.cube_system_rotation_yaw = 300
+        self.cube_system_rotation_pitch = 500
+        self.cube_system_rotation_yaw = 0
         self.cube_system_scale = 1
 
         self.camera_window_name = "camera settings"
@@ -82,10 +82,9 @@ class Window:
         cv.setTrackbarPos("Scale", "cube settings", self.cube_system_scale)
 
         cv.setTrackbarPos("Normals", "cube settings", 0)
-        cv.setTrackbarPos("Planes", "cube settings", 0)
-        cv.setTrackbarPos("Points", "cube settings", 1)
+        cv.setTrackbarPos("Planes", "cube settings", 1)
+        cv.setTrackbarPos("Points", "cube settings", 0)
 
-        cv.setMouseCallback("image window", self.mouse_event_handler)
 
     def toggle_normal(self, value):
         self.show_normals = not self.show_normals
@@ -142,100 +141,3 @@ class Window:
     @staticmethod
     def nothing(value):
         pass
-
-
-    def handle_movement(self):
-            camera_speed = 100
-            current_time = time.time()
-            if current_time - self.last_update_time >= self.update_interval:
-                self.last_update_time = current_time
-                
-                key = cv.waitKey(30) & 0xFF
-            
-                if key == ord('d'):
-                    self.move_camera('forward', camera_speed)
-                if key == ord('a'):
-                    self.move_camera('backward', camera_speed)
-                if key == ord('w'):
-                    self.move_camera('left', camera_speed)
-                if key == ord('s'):
-                    self.move_camera('right', camera_speed)
-                if key == ord('q'):
-                    self.move_camera('down', camera_speed)
-                if key == ord('e'):
-                    self.move_camera('up', camera_speed)
-
-    def move_camera(self, direction, speed):
-        # Calculate vectors
-        yaw = np.deg2rad(self.camera_system_rotation_yaw / 10.0)
-        pitch = np.deg2rad(self.camera_system_rotation_pitch / 10.0)
-
-        forward_x = np.cos(pitch) * np.cos(yaw)
-        forward_y = np.cos(pitch) * np.sin(yaw)
-        forward_z = np.sin(pitch)
-
-        right_x = np.sin(yaw)
-        right_y = -np.cos(yaw)
-        right_z = 0
-
-        up_x = 0
-        up_y = 0
-        up_z = 1
-
-        if direction == 'forward':
-            self.camera_system_translation_x += int(forward_x * speed)
-            self.camera_system_translation_y += int(forward_y * speed)
-            self.camera_system_translation_z += int(forward_z * speed)
-        elif direction == 'backward':
-            self.camera_system_translation_x -= int(forward_x * speed)
-            self.camera_system_translation_y -= int(forward_y * speed)
-            self.camera_system_translation_z -= int(forward_z * speed)
-        elif direction == 'left':
-            self.camera_system_translation_x -= int(right_x * speed)
-            self.camera_system_translation_y -= int(right_y * speed)
-        elif direction == 'right':
-            self.camera_system_translation_x += int(right_x * speed)
-            self.camera_system_translation_y += int(right_y * speed)
-        elif direction == 'up':
-            self.camera_system_translation_z += int(up_z * speed)
-        elif direction == 'down':
-            self.camera_system_translation_z -= int(up_z * speed)
-            
-        self.camera_system_translation_x = np.clip(self.camera_system_translation_x, 0, 20000)
-        self.camera_system_translation_y = np.clip(self.camera_system_translation_y, 0, 20000)
-        self.camera_system_translation_z = np.clip(self.camera_system_translation_z, 0, 20000)
-        cv.setTrackbarPos("X", self.camera_window_name, self.camera_system_translation_x)
-        cv.setTrackbarPos("Y", self.camera_window_name, self.camera_system_translation_y)
-        cv.setTrackbarPos("Z", self.camera_window_name, self.camera_system_translation_z)
-
-    def mouse_event_handler(self, event, x, y, flags, param):
-        if event == cv.EVENT_LBUTTONDOWN:
-            self.mouse_is_pressed = True
-            self.last_mouse_position = (x, y)
-        elif event == cv.EVENT_LBUTTONUP:
-            self.mouse_is_pressed = False
-        elif event == cv.EVENT_RBUTTONDOWN:
-            self.right_button_mode = True
-        elif event == cv.EVENT_RBUTTONDBLCLK:
-            self.right_button_mode = False
-            self.last_mouse_position = (x, y)
-        elif event == cv.EVENT_MOUSEMOVE:
-            if self.mouse_is_pressed or self.right_button_mode:
-                dx = x - self.last_mouse_position[0]
-                dy = y - self.last_mouse_position[1]
-                self.camera_system_rotation_yaw += dx
-                self.camera_system_rotation_roll += dy 
-                if self.camera_system_rotation_yaw > 3600:
-                    self.camera_system_rotation_yaw -= 3599
-                if self.camera_system_rotation_roll > 3600:
-                    self.camera_system_rotation_roll -= 3599
-                if self.camera_system_rotation_yaw < 0:
-                    self.camera_system_rotation_yaw += 3599
-                if self.camera_system_rotation_roll < 0:
-                    self.camera_system_rotation_roll += 3599
-                #self.camera_system_rotation_yaw = np.clip(self.camera_system_rotation_yaw, 0, 3600)
-                #self.camera_system_rotation_roll = np.clip(self.camera_system_rotation_roll, 0, 3600)
-                cv.setTrackbarPos("Yaw", self.camera_window_name, self.camera_system_rotation_yaw)
-                cv.setTrackbarPos("Roll", self.camera_window_name, self.camera_system_rotation_roll)
-                self.last_mouse_position = (x, y)
-                

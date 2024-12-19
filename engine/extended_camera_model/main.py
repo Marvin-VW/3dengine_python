@@ -16,7 +16,7 @@ class Engine:
 
     def __init__(self):
 
-        self.camera_model = CameraModel(0.00452, 0.00254, 0.004, 1280, 720, 1280/2, 720/2)
+        self.camera_model = CameraModel(0.00452, 0.00339, 0.004, 640, 480, 640/2, 480/2)
         self.window = Window()
         self.clipping_space = Clipping_Space()
         self.fps_counter = FpsCounter(60)
@@ -48,7 +48,6 @@ class Engine:
 
         while True:
 
-            self.window.handle_movement()
             self.fps_counter.update()
             self.camera_model.reset_camera_image()
 
@@ -68,7 +67,7 @@ class Engine:
 
                 if self.is_triangle_facing_camera(triangle.normal, triangle.centroids, camera_vector_world) < 0.0:
 
-                    light_direction = (1, -0.5, -0.8)
+                    light_direction = (0.5, -2.0, 0.5)
                     triangle.ilm = Color.intensity(light_direction, triangle.normal)
                     triangle.color = Color.adjust_bgr_intensity(Color.ALICE_BLUE, triangle.ilm)
 
@@ -80,9 +79,6 @@ class Engine:
             shadow_points = CalculateNormal.get_shadow(sorted_list, light_direction)
             shadow_points_camera = self.camera_model.world_transform(shadow_points, self.C_T_V)
             self.camera_model.draw_poly(shadow_points_camera)
-
-            print(shadow_points_camera)
-
 
             clipped_triangles = []
             clipped_triangles.extend(self.clipping_space.cube_in_space(sorted_list))

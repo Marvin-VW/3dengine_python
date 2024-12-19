@@ -1,15 +1,89 @@
 name: tests
-run-name: tests
-on: [push]
+run-name: Python Tests
+on:
+  workflow_call:
+
+  push:
+    branches:
+      - "**"
+
 jobs:
   run-unittests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: actions/setup-python@v4
+      - name: 'Setup Python'
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: tox
+      - name: 'Install dependencies'
+        run: pip install -r requirements.txt
+      - name: 'Run unit tests'
+        run: tox
+      - name: 'Test engine/basic_camera_model/main.py'
+        run: python engine/basic_camera_model/main.py
+      - name: 'Test engine/extended_camera_model/main.py'
+        run: python engine/extended_camera_model/main.py
+
+  smoke-tests-linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        image: [ 'ubuntu:latest', 'ubuntu:20.04', 'ubuntu:22.04', 'debian:latest', 'archlinux:latest' ]
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.image }}
+      env:
+        TZ: Europe/Berlin
+    steps:
+      - name: 'Install git (Ubuntu, Debian)'
+        if: ${{ contains(fromJSON('["ubuntu:latest", "ubuntu:20.04", "ubuntu:22.04", "debian:latest"]'), matrix.image) }}
+        run: apt-get update && apt-get install -y git
+      - name: 'Install git (Arch)'
+        if: ${{ contains('archlinux:latest', matrix.image) }}
+        run: pacman -Syu --noconfirm git
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: 'Setup timezone'
+        run: ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+      - name: 'Setup Python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: 'Install dependencies'
+        run: pip install -r requirements.txt
+      - name: 'Run unit tests'
+        run: tox
+      - name: 'Test engine/basic_camera_model/main.py'
+        run: python engine/basic_camera_model/main.py
+      - name: 'Test engine/extended_camera_model/main.py'
+        run: python engine/extended_camera_model/main.py
+
+  smoke-tests-macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        macos_version: [ 'macos-latest', 'macos-13' ]
+    runs-on: ${{ matrix.macos_version }}
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: 'Setup Python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: 'Install dependencies'
+        run: pip install -r requirements.txt
+      - name: 'Run unit tests'
+        run: tox
+      - name: 'Test engine/basic_camera_model/main.py'
+        run: python engine/basic_camera_model/main.py
+      - name: 'Test engine/extended_camera_model/main.py'
+        run: python engine/extended_camera_model/main.py
