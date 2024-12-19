@@ -10,5 +10,5 @@ template-project-utils
 sphinx
 sphinx_rtd_theme
 
-opencv-python~=4.9.0.80
+opencv-python~=4.10.0.84
 numpy<2
