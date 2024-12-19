@@ -15,4 +15,4 @@ master_doc = "index"
 project = "3D Engine Python"
 copyright = "2024, Marvin-VW"
 author = "Marvin Lorenz"
-version = release = 1.4
+version = release = str(1.4)
