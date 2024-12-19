@@ -1,4 +1,3 @@
-from template_project_python import __version__
 
 html_static_path = ['_static']
 html_extra_path = ['resources/pipeline']
@@ -16,4 +15,4 @@ master_doc = "index"
 project = "3D Engine Python"
 copyright = "2024, Marvin-VW"
 author = "Marvin Lorenz"
-version = release = __version__
+version = release = 1.4
