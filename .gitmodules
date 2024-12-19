@@ -1,4 +1,0 @@
-[submodule "playground_camera_model"]
-	path = playground_camera_model
-	url = https://github.com/Marvin-VW/playground_camera_model.git
-	branch = add_python
