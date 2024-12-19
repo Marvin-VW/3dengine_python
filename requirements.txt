@@ -9,3 +9,6 @@ pyinstaller
 template-project-utils
 sphinx
 sphinx_rtd_theme
+
+opencv-python~=4.9.0.80
+numpy<2
