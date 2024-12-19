@@ -17,7 +17,7 @@ jobs:
       - name: 'Setup Python'
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.12.3'
       - name: Ensure pip is installed
         run: python -m ensurepip --upgrade
       - name: Upgrade pip and setuptools
